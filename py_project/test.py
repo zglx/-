@@ -139,9 +139,13 @@ class Ant(object):
 
 # ----------- TSP问题 -----------
 
+
+
 class TSP(object):
 
+
     def __init__(self, root, width=800, height=600, n=city_num):
+
 
         # 创建画布
         self.root = root

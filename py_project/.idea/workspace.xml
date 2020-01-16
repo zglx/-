@@ -14,7 +14,12 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
   <component name="ProjectId" id="1WSppGKbWOoejbbbSl4wGHt5xsr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,7 +27,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
   <component name="RunManager">
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -78,10 +84,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="580" y="188" key="FileChooserDialogImpl" timestamp="1579153080347">
+    <state x="451" y="26" key="CommitChangelistDialog2" timestamp="1579158724330">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="188" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1579153080347" />
+    <state x="451" y="26" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1579158724330" />
+    <state x="580" y="188" key="FileChooserDialogImpl" timestamp="1579158440654">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="188" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1579158440654" />
     <state width="1579" height="276" key="GridCell.Tab.0.bottom" timestamp="1579157187094">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -114,14 +124,26 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1579" height="276" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1579157187095" />
-    <state x="303" y="75" key="SettingsEditor" timestamp="1579153555556">
+    <state x="303" y="75" key="SettingsEditor" timestamp="1579158713624">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="303" y="75" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1579153555556" />
+    <state x="303" y="75" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1579158713624" />
+    <state x="392" y="166" key="Vcs.Push.Dialog.v2" timestamp="1579158532372">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="392" y="166" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1579158532372" />
     <state x="492" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1579153039702">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="492" y="257" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1579153039702" />
+    <state x="594" y="348" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579158731327">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="594" y="348" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1579158731327" />
+    <state x="550" y="232" key="git4idea.merge.GitPullDialog" timestamp="1579158560462">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="550" y="232" key="git4idea.merge.GitPullDialog/0.0.1600.860@0.0.1600.860" timestamp="1579158560462" />
     <state x="456" y="83" width="670" height="676" key="search.everywhere.popup" timestamp="1579156610496">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -132,12 +154,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test.py</url>
-          <line>203</line>
+          <line>218</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test.py</url>
-          <line>204</line>
+          <line>219</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
