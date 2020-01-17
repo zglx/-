@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="854b3f66-965e-407f-bd51-071f00a0cdec" name="Default Changelist" comment="">
+    <list default="true" id="854b3f66-965e-407f-bd51-071f00a0cdec" name="Default Changelist" comment="测试多条线路">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +30,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.updates" />
   </component>
   <component name="RunManager">
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -91,88 +90,145 @@
       <option name="project" value="LOCAL" />
       <updated>1579158749396</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="测试多条线路">
+      <created>1579225859823</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579225859823</updated>
+    </task>
+    <task id="LOCAL-00003" summary="测试多条线路">
+      <created>1579227184814</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1579227184814</updated>
+    </task>
+    <task id="LOCAL-00004" summary="张龙鑫">
+      <created>1579239837723</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1579239837723</updated>
+    </task>
+    <task id="LOCAL-00005" summary="四条路线图">
+      <created>1579243824908</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1579243824908</updated>
+    </task>
+    <task id="LOCAL-00006" summary="改变线路颜色">
+      <created>1579244215762</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1579244215762</updated>
+    </task>
+    <task id="LOCAL-00007" summary="多条线路图">
+      <created>1579246718913</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1579246718913</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试" />
+    <MESSAGE value="测试多条线路" />
+    <MESSAGE value="张龙鑫" />
+    <MESSAGE value="四条路线图" />
+    <MESSAGE value="改变线路颜色" />
+    <MESSAGE value="多条线路图" />
+    <option name="LAST_COMMIT_MESSAGE" value="多条线路图" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="451" y="26" key="CommitChangelistDialog2" timestamp="1579158748970">
+    <state x="451" y="26" key="CommitChangelistDialog2" timestamp="1579246718553">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="451" y="26" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1579158748970" />
+    <state x="451" y="26" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1579246718553" />
     <state x="580" y="188" key="FileChooserDialogImpl" timestamp="1579225588232">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="188" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1579225588232" />
-    <state width="1579" height="276" key="GridCell.Tab.0.bottom" timestamp="1579225823992">
+    <state width="1579" height="289" key="GridCell.Tab.0.bottom" timestamp="1579247727283">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="276" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579225823992" />
-    <state width="1579" height="276" key="GridCell.Tab.0.center" timestamp="1579225823992">
+    <state width="1579" height="289" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579247727283" />
+    <state width="1579" height="289" key="GridCell.Tab.0.center" timestamp="1579247727283">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="276" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1579225823992" />
-    <state width="1579" height="276" key="GridCell.Tab.0.left" timestamp="1579225823992">
+    <state width="1579" height="289" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1579247727283" />
+    <state width="1579" height="289" key="GridCell.Tab.0.left" timestamp="1579247727283">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="276" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1579225823992" />
-    <state width="1579" height="276" key="GridCell.Tab.0.right" timestamp="1579225823992">
+    <state width="1579" height="289" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1579247727283" />
+    <state width="1579" height="289" key="GridCell.Tab.0.right" timestamp="1579247727283">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="276" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1579225823992" />
-    <state width="1579" height="276" key="GridCell.Tab.1.bottom" timestamp="1579225824692">
+    <state width="1579" height="289" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1579247727283" />
+    <state width="1579" height="289" key="GridCell.Tab.1.bottom" timestamp="1579247727231">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="276" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579225824692" />
-    <state width="1579" height="276" key="GridCell.Tab.1.center" timestamp="1579225824691">
+    <state width="1579" height="289" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1579247727231" />
+    <state width="1579" height="289" key="GridCell.Tab.1.center" timestamp="1579247727231">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="276" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1579225824691" />
-    <state width="1579" height="276" key="GridCell.Tab.1.left" timestamp="1579225824691">
+    <state width="1579" height="289" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1579247727231" />
+    <state width="1579" height="289" key="GridCell.Tab.1.left" timestamp="1579247727231">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="276" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1579225824691" />
-    <state width="1579" height="276" key="GridCell.Tab.1.right" timestamp="1579225824691">
+    <state width="1579" height="289" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1579247727231" />
+    <state width="1579" height="289" key="GridCell.Tab.1.right" timestamp="1579247727231">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1579" height="276" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1579225824691" />
-    <state x="303" y="75" key="SettingsEditor" timestamp="1579224025539">
+    <state width="1579" height="289" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1579247727231" />
+    <state x="303" y="75" key="SettingsEditor" timestamp="1579226606914">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="303" y="75" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1579224025539" />
-    <state x="392" y="166" key="Vcs.Push.Dialog.v2" timestamp="1579158532372">
+    <state x="303" y="75" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1579226606914" />
+    <state x="392" y="166" key="Vcs.Push.Dialog.v2" timestamp="1579246720049">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="166" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1579158532372" />
+    <state x="392" y="166" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1579246720049" />
     <state x="492" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1579153039702">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="492" y="257" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1579153039702" />
-    <state x="594" y="348" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579225839521">
+    <state x="594" y="348" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579247734734">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="594" y="348" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1579225839521" />
+    <state x="594" y="348" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1579247734734" />
     <state x="550" y="232" key="git4idea.merge.GitPullDialog" timestamp="1579158560462">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="550" y="232" key="git4idea.merge.GitPullDialog/0.0.1600.860@0.0.1600.860" timestamp="1579158560462" />
-    <state x="456" y="83" width="670" height="676" key="search.everywhere.popup" timestamp="1579156610496">
+    <state x="456" y="83" width="670" height="676" key="search.everywhere.popup" timestamp="1579246563394">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="456" y="83" width="670" height="676" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1579156610496" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>258</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="456" y="83" width="670" height="676" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1579246563394" />
   </component>
 </project>
