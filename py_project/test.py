@@ -16,7 +16,6 @@ BETA:Beta值越大，蚁群越就容易选择局部较短路径，这时算法�
 # 城市数，蚁群
 (city_num, ant_num) = (10, 10)
 
-#第一条地铁线的(x,y)坐标
 distance_x = [
     185, 185, 185, 196, 211, 228, 238, 238, 238, 238, 238, 238, 238, 238, 238]
 distance_y = [
@@ -36,16 +35,16 @@ threehaoxian_y = [
 ]
 
 fourhaoxian_x = [
-    500, 510, 520,530, 540, 550, 560, 570, 580, 570]
+    76, 118, 158,198, 240, 275, 305, 336, 365, 396]
 
 fourhaoxian_y = [
-    180, 500, 78, 1, 242, 556, 57, 401, 305, 421]
+    430, 430,430, 430, 430, 430, 430, 430, 430, 430]
 
 
 fivehaoxian_x = [
-    500, 510, 520,530, 540, 550, 560, 570, 580, 570]
+    396, 352]
 fivehaoxian_y = [
-    180, 500, 78, 1, 242, 556, 57, 401, 305, 421]
+    430, 430]
 
 # 城市距离和信息素
 distance_graph = [[0.0 for col in range(city_num)] for raw in range(city_num)]
@@ -236,6 +235,9 @@ class TSP(object):
 
         self.fourNodes = []  # 第四条地铁线节点坐标
         self.fourNodes2 = []  # 第四条地铁线节点对象
+
+        self.fiveNodes = []  # 第五条地铁线节点坐标
+        self.fiveNodes2 = []  # 第四条地铁线节点对象
         # 初始化第一条节点
         for i in range(len(distance_x)):
             # 在画布上随机初始坐标
@@ -331,6 +333,29 @@ class TSP(object):
 
         self.line_four(range(len(fourhaoxian_x)))
 
+        # 初始化第五条城市节点
+        for i in range(len(fivehaoxian_x)):
+            # 在画布上随机初始坐标
+            x = fivehaoxian_x[i]
+            y = fivehaoxian_y[i]
+            self.fiveNodes.append((x, y))
+            # 生成节点椭圆，半径为self.__r
+            node = self.canvas.create_oval(x - self.__r,
+                                           y - self.__r, x + self.__r, y + self.__r,
+                                           fill="#ff0000",  # 填充红色
+                                           outline="#000000",  # 轮廓白色
+                                           tags="node",
+                                           )
+            self.fiveNodes2.append(node)
+            # 显示坐标
+            self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                    text='(' + str(x) + ',' + str(y) + ')',  # 所绘制文字的内容
+                                    fill='black'  # 所绘制文字的颜色为灰色
+                                    )
+
+        # 顺序连接城市
+
+        self.line_five(range(len(fivehaoxian_x)))
 
         # 初始城市之间的距离和信息素
         for i in range(city_num):
@@ -361,6 +386,19 @@ class TSP(object):
 
         def line2(i1, i2):
             p1, p2 = self.twoNodes[i1], self.twoNodes[i2]
+            self.canvas.create_line(p1, p2, width=6, fill="blue", tags="line")
+            return i2
+
+        # order[-1]为初始值
+        reduce(line2, order, order[0])
+
+
+    def line_five(self, order):
+        # 删除原线
+        print(order)
+
+        def line2(i1, i2):
+            p1, p2 = self.fiveNodes[i1], self.fiveNodes[i2]
             self.canvas.create_line(p1, p2, width=6, fill="blue", tags="line")
             return i2
 
