@@ -16,35 +16,56 @@ BETA:Beta值越大，蚁群越就容易选择局部较短路径，这时算法�
 # 城市数，蚁群
 (city_num, ant_num) = (10, 10)
 
+
 distance_x = [
     185, 185, 185, 196, 211, 228, 238, 238, 238, 238, 238, 238, 238, 238, 238]
+for i, v in enumerate(distance_x):
+    distance_x[i] = v * 2
 distance_y = [
     65, 80, 100, 125, 140, 155, 180, 198, 220, 245, 270, 320, 352, 395,430]
+for i, v in enumerate(distance_y):
+    distance_y[i] = v * 2-100
 #第二条地铁线的(x,y)坐标
 erhaoxian_x = [
     185, 165, 160, 145, 128, 110, 93, 76, 76, 76, 76, 76, 76, 76, 76, 76]
+for i, v in enumerate(erhaoxian_x):
+    erhaoxian_x[i] = v * 2
 erhaoxian_y = [
     100,120,137,152,167,185,203,234,255,285,304,320,355,381,400,430
 ]
+for i, v in enumerate(erhaoxian_y):
+    erhaoxian_y[i] = v * 2-100
 
 threehaoxian_x = [
     76, 100, 124, 135, 188, 205, 205, 240, 302, 322, 350, 372, 396
 ]
+for i, v in enumerate(threehaoxian_x):
+    threehaoxian_x[i] = v * 2
 threehaoxian_y = [
     255, 278, 285, 285, 285, 320, 340, 352, 352, 352, 352, 352, 352
 ]
+for i, v in enumerate(threehaoxian_y):
+    threehaoxian_y[i] = v * 2-100
 
 fourhaoxian_x = [
     76, 118, 158,198, 240, 275, 305, 336, 365, 396]
+for i, v in enumerate(fourhaoxian_x):
+    fourhaoxian_x[i] = v * 2
 
 fourhaoxian_y = [
     430, 430,430, 430, 430, 430, 430, 430, 430, 430]
+for i, v in enumerate(fourhaoxian_y):
+    fourhaoxian_y[i] = v * 2-100
 
 
 fivehaoxian_x = [
-    396, 352]
+    396, 396]
+for i, v in enumerate(fivehaoxian_x):
+    fivehaoxian_x[i] = v * 2
 fivehaoxian_y = [
-    430, 430]
+    352, 430]
+for i, v in enumerate(fivehaoxian_y):
+    fivehaoxian_y[i] = v * 2-100
 
 # 城市距离和信息素
 distance_graph = [[0.0 for col in range(city_num)] for raw in range(city_num)]
@@ -169,7 +190,7 @@ class Ant(object):
 class TSP(object):
 
 
-    def __init__(self, root, width=1024, height=800, n=city_num):
+    def __init__(self, root, width=1024, height=1024, n=city_num):
 
 
         # 创建画布
@@ -188,7 +209,7 @@ class TSP(object):
             yscrollincrement=1
         )
         self.canvas.pack(expand=tkinter.YES, fill=tkinter.BOTH)
-        self.title("TSP蚁群算法(n:初始化 e:开始搜索 s:停止搜索 q:退出程序)")
+        self.title("智能交通选择(n:初始化 e:开始搜索 s:停止搜索 q:退出程序)")
         self.__r = 5
         self.__lock = threading.RLock()  # 线程锁
 
