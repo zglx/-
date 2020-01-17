@@ -27,7 +27,7 @@ erhaoxian_x = [
 erhaoxian_y = [
     100,120,137,152,167,185,203,234,255,285,304,320,355,381,400,430]
 
-threehyaoxian_x = [
+threehaoxian_x = [
     400, 410, 420, 430, 440, 450, 460, 470, 480, 470]
 threehaoxian_y = [
     180, 500, 78, 1, 242, 556, 57, 401, 305, 421]
@@ -36,6 +36,13 @@ fourhaoxian_x = [
     500, 510, 520,530, 540, 550, 560, 570, 580, 570]
 fourhaoxian_y = [
     180, 500, 78, 1, 242, 556, 57, 401, 305, 421]
+
+
+fivehaoxian_x = [
+    500, 510, 520,530, 540, 550, 560, 570, 580, 570]
+fivehaoxian_y = [
+    180, 500, 78, 1, 242, 556, 57, 401, 305, 421]
+
 # 城市距离和信息素
 distance_graph = [[0.0 for col in range(city_num)] for raw in range(city_num)]
 pheromone_graph = [[1.0 for col in range(city_num)] for raw in range(city_num)]
@@ -274,10 +281,10 @@ class TSP(object):
         self.line_two(range(len(erhaoxian_x)))
 
         # 初始化第三条城市节点
-        for i in range(len(threehyaoxian_x)):
+        for i in range(len(threehaoxian_x)):
             # 在画布上随机初始坐标
-            x = threehyaoxian_x[i]
-            y = threehyaoxian_x[i]
+            x = threehaoxian_x[i]
+            y = threehaoxian_y[i]
             self.threeNodes.append((x, y))
             # 生成节点椭圆，半径为self.__r
             node = self.canvas.create_oval(x - self.__r,
@@ -294,13 +301,13 @@ class TSP(object):
                                     )
 
         # 顺序连接城市
-        self.line_three(range(len(threehyaoxian_x)))
+        self.line_three(range(len(threehaoxian_x)))
 
         # 初始化第四条城市节点
         for i in range(len(fourhaoxian_x)):
             # 在画布上随机初始坐标
             x = fourhaoxian_x[i]
-            y = fourhaoxian_x[i]
+            y = fourhaoxian_y[i]
             self.fourNodes.append((x, y))
             # 生成节点椭圆，半径为self.__r
             node = self.canvas.create_oval(x - self.__r,
