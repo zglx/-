@@ -34,13 +34,6 @@ threehaoxian_y = [
 
 fourhaoxian_x = [
     500, 510, 520,530, 540, 550, 560, 570, 580, 570]
-
-
-
-
-
-
-
 fourhaoxian_y = [
     180, 500, 78, 1, 242, 556, 57, 401, 305, 421]
 # 城市距离和信息素
@@ -345,7 +338,7 @@ class TSP(object):
         print(order)
         def line2(i1, i2):
             p1, p2 = self.nodes[i1], self.nodes[i2]
-            self.canvas.create_line(p1, p2, width=6, fill="blue", tags="line")
+            self.canvas.create_line(p1, p2, width=6, fill="yellow", tags="line")
             return i2
 
         # order[-1]为初始值
@@ -357,7 +350,7 @@ class TSP(object):
 
         def line2(i1, i2):
             p1, p2 = self.twoNodes[i1], self.twoNodes[i2]
-            self.canvas.create_line(p1, p2, width=6, fill="red", tags="line")
+            self.canvas.create_line(p1, p2, width=6, fill="blue", tags="line")
             return i2
 
         # order[-1]为初始值
@@ -369,7 +362,7 @@ class TSP(object):
 
         def line2(i1, i2):
             p1, p2 = self.threeNodes[i1], self.threeNodes[i2]
-            self.canvas.create_line(p1, p2, width=6, fill="green", tags="line")
+            self.canvas.create_line(p1, p2, width=6, fill="red", tags="line")
             return i2
 
         # order[-1]为初始值
@@ -383,7 +376,7 @@ class TSP(object):
 
         def line2(i1, i2):
             p1, p2 = self.fourNodes[i1], self.fourNodes[i2]
-            self.canvas.create_line(p1, p2, width=6, fill="black", tags="line")
+            self.canvas.create_line(p1, p2, width=6, fill="green", tags="line")
             return i2
 
         # order[-1]为初始值
