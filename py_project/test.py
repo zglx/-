@@ -21,6 +21,11 @@ distance_x = [
     180, 190, 200, 210, 220, 230, 240, 250, 260, 270]
 distance_y = [
     180, 500, 78, 1, 242, 556, 57, 401, 305, 421]
+
+erhaoxian_x = [
+    300, 310, 320, 330, 340, 350, 360, 370, 380, 390]
+erhaoxian_y = [
+    180, 500, 78, 1, 242, 556, 57, 401, 305, 421]
 # 城市距离和信息素
 distance_graph = [[0.0 for col in range(city_num)] for raw in range(city_num)]
 pheromone_graph = [[1.0 for col in range(city_num)] for raw in range(city_num)]
@@ -44,7 +49,7 @@ class Ant(object):
         self.current_city = -1  # 当前停留的城市
         self.open_table_city = [True for i in range(city_num)]  # 探索城市的状态
 
-        city_index = random.randint(0, city_num - 1)  # 随机初始出生点
+        city_index = 0
         self.current_city = city_index
         self.path.append(city_index)
         self.open_table_city[city_index] = False
@@ -144,7 +149,7 @@ class Ant(object):
 class TSP(object):
 
 
-    def __init__(self, root, width=800, height=600, n=city_num):
+    def __init__(self, root, width=1024, height=800, n=city_num):
 
 
         # 创建画布
@@ -202,6 +207,9 @@ class TSP(object):
         self.nodes = []  # 节点坐标
         self.nodes2 = []  # 节点对象
 
+        self.twoNodes = []  # 节点坐标
+        self.twoNodes2 = []  # 节点对象
+
         # 初始化城市节点
         for i in range(len(distance_x)):
             # 在画布上随机初始坐标
@@ -224,7 +232,32 @@ class TSP(object):
 
         # 顺序连接城市
 
-        self.line(range(10))
+        self.line(range(len(distance_x)))
+
+        # 初始化城市节点
+        for i in range(len(erhaoxian_x)):
+            # 在画布上随机初始坐标
+            x = erhaoxian_x[i]
+            y = erhaoxian_y[i]
+            self.twoNodes.append((x, y))
+            # 生成节点椭圆，半径为self.__r
+            node = self.canvas.create_oval(x - self.__r,
+                                           y - self.__r, x + self.__r, y + self.__r,
+                                           fill="#ff0000",  # 填充红色
+                                           outline="#000000",  # 轮廓白色
+                                           tags="node",
+                                           )
+            self.twoNodes2.append(node)
+            # 显示坐标
+            self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                    text='(' + str(x) + ',' + str(y) + ')',  # 所绘制文字的内容
+                                    fill='black'  # 所绘制文字的颜色为灰色
+                                    )
+
+        # 顺序连接城市
+
+        self.line_two(range(len(erhaoxian_x)))
+
 
         # 初始城市之间的距离和信息素
         for i in range(city_num):
@@ -243,11 +276,24 @@ class TSP(object):
         print(order)
         def line2(i1, i2):
             p1, p2 = self.nodes[i1], self.nodes[i2]
-            self.canvas.create_line(p1, p2, fill="#457829", tags="line")
+            self.canvas.create_line(p1, p2, width=6, fill="blue", tags="line")
             return i2
 
         # order[-1]为初始值
         reduce(line2, order, order[0])
+
+    def line_two(self, order):
+        # 删除原线
+        print(order)
+
+        def line2(i1, i2):
+            p1, p2 = self.twoNodes[i1], self.twoNodes[i2]
+            self.canvas.create_line(p1, p2, width=6, fill="red", tags="line")
+            return i2
+
+        # order[-1]为初始值
+        reduce(line2, order, order[0])
+
 
     # 清除画布
     def clear(self):
@@ -324,10 +370,8 @@ class TSP(object):
 if __name__ == '__main__':
     print(u""" 
 --------------------------------------------------------
-    程序：蚁群算法解决TPS问题程序 
-    作者：许彬 
-    日期：2015-12-10
-    语言：Python 2.7 
+
 -------------------------------------------------------- 
     """)
+    print(pheromone_graph)
     TSP(tkinter.Tk()).mainloop()
