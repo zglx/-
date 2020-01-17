@@ -144,6 +144,8 @@ class Ant(object):
         # 返回下一个城市序号
         return next_city
 
+
+
     # 计算路径总距离
     def __cal_total_distance(self):
 
