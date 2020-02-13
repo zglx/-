@@ -14,7 +14,7 @@ BETA:Beta值越大，蚁群越就容易选择局部较短路径，这时算法�
 '''
 (ALPHA, BETA, RHO, Q) = (1.0, 2.0, 0.5, 100.0)
 # 城市数，蚁群
-(city_num, ant_num) = (15, 15)
+(city_num, ant_num) = (53, 15)
 
 
 distance_x = [
@@ -27,16 +27,14 @@ erhaoxian_x = [
     185, 165, 160, 145, 128, 110, 93, 76, 76, 76, 76, 76, 76, 76, 76, 76]
 
 erhaoxian_y = [
-    100,120,137,152,167,185,203,234,255,285,304,320,355,381,400,430
-]
+    100,120,137,152,167,185,203,234,255,285,304,320,355,381,400,430]
 
 
 threehaoxian_x = [
     76, 100, 124, 135, 188, 205, 205, 240, 302, 322, 350, 372, 396]
 
 threehaoxian_y = [
-    255, 278, 285, 285, 285, 320, 340, 352, 352, 352, 352, 352, 352
-]
+    255, 278, 285, 285, 285, 320, 340, 352, 352, 352, 352, 352, 352]
 
 
 fourhaoxian_x = [
@@ -88,14 +86,13 @@ class Ant(object):
         next_city = -1
         select_citys_prob = [0.0 for i in range(city_num)]  # 存储去下个城市的概率
         total_prob = 0.0
-
+        result = ()
         # 获取去下一个城市的概率
-        for i in range(city_num):
+        for i in range(15):
             if self.open_table_city[i]:
                 try:
                     # 计算概率：与信息素浓度成正比，与距离成反比
-                    select_citys_prob[i] = pow(pheromone_graph[self.current_city][i], ALPHA) * pow(
-                        (1.0 / distance_graph[self.current_city][i]), BETA)
+                    select_citys_prob[i] = pow(pheromone_graph[self.current_city][i], ALPHA) * pow((1.0 / distance_graph[self.current_city][i]), BETA)
                     total_prob += select_citys_prob[i]
                 except ZeroDivisionError as e:
                     print('Ant ID: {ID}, current city: {current}, target city: {target}'.format(ID=self.ID,
@@ -117,17 +114,28 @@ class Ant(object):
 
         # 未从概率产生，顺序选择一个未访问城市
         if next_city == -1:
-            for i in range(city_num):
+            for i in range(15):
                 if self.open_table_city[i]:
                     next_city = i
+                    result = (distance_x[i], distance_y[i])
                     break
-
+        # if next_city >= 14:
+        #     for i in range(4,10):
+        #         if self.open_table_city[14+i]:
+        #             result = (fourhaoxian_x[i],fourhaoxian_y[i])
+        #             break
         if (next_city == -1):
-            next_city = random.randint(0, city_num - 1)
-            while ((self.open_table_city[next_city]) == False):  # if==False,说明已经遍历过了
-                next_city = random.randint(0, city_num - 1)
+            # next_city = random.randint(0, city_num - 1)
+            # while ((self.open_table_city[next_city]) == False):  # if==False,说明已经遍历过了
+            #     next_city = random.randint(0, city_num - 1)
         # 返回下一个城市序号
-        return next_city
+            for i in range(4,10):
+
+                if self.open_table_city[ 14+ i - 3]:
+
+                    result = (fourhaoxian_x[i],fourhaoxian_y[i])
+                    break
+        return result
 
 
 
@@ -143,15 +151,23 @@ class Ant(object):
         # # 回路
         # end = self.path[0]
         # temp_distance += distance_graph[start][end]
+        for i in range(len(self.path)-1):
+            sum  = 0
+            sum = pow((self.path[i][0] - self.path[i+1][0]), 2) + pow((self.path[i][1] - self.path[i+1][1]), 2)
+            sum = round(pow(sum, 0.5),2)
+            temp_distance += sum
         self.total_distance = temp_distance
 
     # 移动操作
     def __move(self, next_city):
 
-        self.path.append((distance_x[next_city],distance_y[next_city]))
-        self.open_table_city[next_city] = False
-        self.total_distance += distance_graph[self.current_city][next_city]
-        self.current_city = next_city
+        self.path.append(next_city)
+        self.open_table_city[self.move_count] = False
+        sum = 0
+        sum = pow((self.path[len(self.path)-1][0] - self.path[len(self.path)-2][0]), 2) + pow((self.path[len(self.path)-1][1] - self.path[len(self.path)-2][1]), 2)
+        sum = round(pow(sum, 0.5), 2)
+        self.total_distance += sum
+        self.current_city = self.move_count
         self.move_count += 1
 
     # 搜索路径
@@ -161,7 +177,7 @@ class Ant(object):
         self.__clean_data()
 
         # 搜素路径，遍历完所有城市为止
-        while self.move_count < city_num:
+        while (self.path[len(self.path)-1][0]   != 396 & self.path[len(self.path)-1][1] != 430) :
             # 移动到下一个城市
             next_city = self.__choice_next_city()
             self.__move(next_city)
@@ -204,8 +220,8 @@ class TSP(object):
         self.new()
 
         # 计算城市之间的距离
-        for i in range(city_num):
-            for j in range(city_num):
+        for i in range(15):
+            for j in range(15):
                 temp_distance = pow((distance_x[i] - distance_x[j]), 2) + pow((distance_y[i] - distance_y[j]), 2)
                 temp_distance = pow(temp_distance, 0.5)
                 distance_graph[i][j] = temp_distance
