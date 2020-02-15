@@ -15,8 +15,15 @@ BETA:Beta值越大，蚁群越就容易选择局部较短路径，这时算法�
 (ALPHA, BETA, RHO, Q) = (1.0, 2.0, 0.5, 100.0)
 # 城市数，蚁群
 (city_num, ant_num) = (53, 15)
+san_hao_xian_zhan = ["人和","龙归","嘉禾望岗","白云大道北","永泰","同和","京溪南方医院","梅花园","燕塘","广州东站","林和西","体育西路","珠江新城","广州塔","客村"];
 
+er_hao_xian_zhan=["嘉禾望岗","黄边","江夏","萧岗","白云文化广场","白云公园","飞翔公园","三元里","广州火车站","越秀公园","纪念堂","公园前","海珠广场","市二宫","纪念堂","江南西","昌岗"]
 
+wu_hao_xian_zhan=["广州火车站","小北","淘金","区庄","动物园","杨箕","五羊邨","珠江新城","猎德","潭村","员村","科韵路","车陂南"]
+
+ba_hao_xian_zhan=["昌岗","晓港","中大","鹭江","客村","赤岗","磨碟沙","新港东","琶洲","万胜围"]
+
+si_hao_xian_zhan=["车陂南","万胜围"]
 distance_x = [
     185, 185, 185, 196, 211, 228, 238, 238, 238, 238, 238, 238, 238, 238, 238]
 distance_y = [
@@ -31,14 +38,14 @@ erhaoxian_y = [
 
 
 threehaoxian_x = [
-    76, 100, 124, 135, 188, 205, 205, 240, 302, 322, 350, 372, 396]
+    76, 100, 124, 135, 188, 205, 205, 238, 302, 322, 350, 372, 396]
 
 threehaoxian_y = [
     255, 278, 285, 285, 285, 320, 340, 352, 352, 352, 352, 352, 352]
 
 
 fourhaoxian_x = [
-    76, 118, 158,198, 240, 275, 305, 336, 365, 396]
+    76, 118, 158,198, 238, 275, 305, 336, 365, 396]
 
 
 fourhaoxian_y = [
@@ -55,6 +62,7 @@ fivehaoxian_y = [
 distance_graph = [[0.0 for col in range(city_num)] for raw in range(city_num)]
 pheromone_graph = [[1.0 for col in range(city_num)] for raw in range(city_num)]
 
+pheromone = [[1.0 for col in range(6)]]
 
 # ----------- 蚂蚁 -----------
 class Ant(object):
@@ -88,17 +96,17 @@ class Ant(object):
         total_prob = 0.0
         result = ()
         # 获取去下一个城市的概率
-        for i in range(15):
-            if self.open_table_city[i]:
-                try:
-                    # 计算概率：与信息素浓度成正比，与距离成反比
-                    select_citys_prob[i] = pow(pheromone_graph[self.current_city][i], ALPHA) * pow((1.0 / distance_graph[self.current_city][i]), BETA)
-                    total_prob += select_citys_prob[i]
-                except ZeroDivisionError as e:
-                    print('Ant ID: {ID}, current city: {current}, target city: {target}'.format(ID=self.ID,
-                                                                                                current=self.current_city,
-                                                                                                target=i))
-                    sys.exit(1)
+        # for i in range(15):
+        #     if self.open_table_city[i]:
+        #         try:
+        #             # 计算概率：与信息素浓度成正比，与距离成反比
+        #             select_citys_prob[i] = pow(pheromone_graph[self.current_city][i], ALPHA) * pow((1.0 / distance_graph[self.current_city][i]), BETA)
+        #             total_prob += select_citys_prob[i]
+        #         except ZeroDivisionError as e:
+        #             print('Ant ID: {ID}, current city: {current}, target city: {target}'.format(ID=self.ID,
+        #                                                                                         current=self.current_city,
+        #                                                                                         target=i))
+        #             sys.exit(1)
 
         # # 轮盘选择城市
         # if total_prob > 0.0:
@@ -278,8 +286,14 @@ class TSP(object):
                                            )
             self.nodes2.append(node)
             # 显示坐标
-            self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
-                                    text='(' + str(x) + ',' + str(y) + ')',  # 所绘制文字的内容
+            if (i in range(3,12) or i==0 or i == 1 or i == 13):
+                self.canvas.create_text(x+30, y ,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                        text='(' + san_hao_xian_zhan[i] + ')',  # 所绘制文字的内容
+                                        fill='black'  # 所绘制文字的颜色为灰色
+                                        )
+            else:
+                self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                    text='('+san_hao_xian_zhan[i]+')',  # 所绘制文字的内容
                                     fill='black'  # 所绘制文字的颜色为灰色
                                     )
 
@@ -302,8 +316,15 @@ class TSP(object):
                                            )
             self.twoNodes2.append(node)
             # 显示坐标
-            self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
-                                    text='(' + str(x) + ',' + str(y) + ')',  # 所绘制文字的内容
+            if( i in range(1,8) or i in range(9,15) ):
+                print(i)
+                self.canvas.create_text(x-30, y ,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                        text='(' + er_hao_xian_zhan[i] + ')',  # 所绘制文字的内容
+                                        fill='black'  # 所绘制文字的颜色为灰色
+                                        )
+            else:
+                self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                    text='(' + er_hao_xian_zhan[i] + ')',  # 所绘制文字的内容
                                     fill='black'  # 所绘制文字的颜色为灰色
                                     )
 
@@ -326,8 +347,19 @@ class TSP(object):
                                            )
             self.threeNodes2.append(node)
             # 显示坐标
-            self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
-                                    text='(' + str(x) + ',' + str(y) + ')',  # 所绘制文字的内容
+            if (i == 1 or i==2 or i==9 or i ==11):
+                self.canvas.create_text(x, y + 15,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                        text='(' + wu_hao_xian_zhan[i] + ')',  # 所绘制文字的内容
+                                        fill='black'  # 所绘制文字的颜色为灰色
+                                        )
+            elif (i == 5 or i ==6):
+                self.canvas.create_text(x-30, y ,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                    text='(' + wu_hao_xian_zhan[i] + ')',  # 所绘制文字的内容
+                                    fill='black'  # 所绘制文字的颜色为灰色
+                                    )
+            else:
+                self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                    text='(' + wu_hao_xian_zhan[i] + ')',  # 所绘制文字的内容
                                     fill='black'  # 所绘制文字的颜色为灰色
                                     )
 
@@ -346,12 +378,21 @@ class TSP(object):
                                            fill="#ff0000",  # 填充红色
                                            outline="#000000",  # 轮廓白色
                                            tags="node",
+
                                            )
             self.fourNodes2.append(node)
             # 显示坐标
-            self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
-                                    text='(' + str(x) + ',' + str(y) + ')',  # 所绘制文字的内容
-                                    fill='black'  # 所绘制文字的颜色为灰色
+            if (i == 6 or i == 8):
+                self.canvas.create_text(x, y +20,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                        text='(' + ba_hao_xian_zhan[i] + ')',  # 所绘制文字的内容
+                                        fill='black'  # 所绘制文字的颜色为灰色
+
+                                        )
+            else:
+                self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
+                                    text='(' + ba_hao_xian_zhan[i]+ ')',  # 所绘制文字的内容
+                                    fill='black' # 所绘制文字的颜色为灰色
+
                                     )
 
         # 顺序连接城市
@@ -374,7 +415,7 @@ class TSP(object):
             self.fiveNodes2.append(node)
             # 显示坐标
             self.canvas.create_text(x, y - 10,  # 使用create_text方法在坐标（302，77）处绘制文字
-                                    text='(' + str(x) + ',' + str(y) + ')',  # 所绘制文字的内容
+                                    text='(' + si_hao_xian_zhan[i] + ')',  # 所绘制文字的内容
                                     fill='black'  # 所绘制文字的颜色为灰色
                                     )
 
@@ -424,7 +465,7 @@ class TSP(object):
 
         def line2(i1, i2):
             p1, p2 = self.fiveNodes[i1], self.fiveNodes[i2]
-            self.canvas.create_line(p1, p2, width=6, fill="blue", tags="line")
+            self.canvas.create_line(p1, p2, width=6, fill="green", tags="line")
             return i2
 
         # order[-1]为初始值
@@ -450,7 +491,7 @@ class TSP(object):
 
         def line2(i1, i2):
             p1, p2 = self.fourNodes[i1], self.fourNodes[i2]
-            self.canvas.create_line(p1, p2, width=6, fill="green", tags="line")
+            self.canvas.create_line(p1, p2, width=6, fill="#9400D3", tags="line")
             return i2
 
         # order[-1]为初始值
@@ -499,7 +540,7 @@ class TSP(object):
                     # 更新最优解
                     self.best_ant = copy.deepcopy(ant)
             # 更新信息素
-            self.__update_pheromone_gragh()
+            # self.__update_pheromone_gragh()
             print(u"迭代次数：", self.iter, u"最佳路径总距离：", int(self.best_ant.total_distance))
             # 连线
             self.display(self.best_ant.path)
@@ -513,13 +554,13 @@ class TSP(object):
     def __update_pheromone_gragh(self):
 
         # 获取每只蚂蚁在其路径上留下的信息素
-        temp_pheromone = [[0.0 for col in range(city_num)] for raw in range(city_num)]
-        # for ant in self.ants:
-        #     for i in range(1, city_num):
-        #         # start, end = ant.path[i - 1], ant.path[i]
-        #         # # 在路径上的每两个相邻城市间留下信息素，与路径总距离反比
-        #         # temp_pheromone[start][end] += Q / ant.total_distance
-        #         # temp_pheromone[end][start] = temp_pheromone[start][end]
+        temp_pheromone = [[0.0 for col in range(6)] for raw in range(city_num)]
+        for ant in self.ants:
+            for i in range(1, city_num):
+                start, end = ant.path[i - 1], ant.path[i]
+                # 在路径上的每两个相邻城市间留下信息素，与路径总距离反比
+                temp_pheromone[start][end] += Q / ant.total_distance
+                temp_pheromone[end][start] = temp_pheromone[start][end]
 
         # 更新所有城市之间的信息素，旧信息素衰减加上新迭代信息素
         for i in range(city_num):
