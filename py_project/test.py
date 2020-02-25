@@ -66,7 +66,7 @@ for i in range(7,12):
     sum = pow(sum, 0.5)
     zhujiang += sum
 zhujiang = zhujiang +  pow(pow(396 - 396, 2) + pow(352 - 430, 2),0.5)
-print(zhujiang)
+
 #换乘一个站点
 kecun = 0
 for i in range(12,14):
@@ -77,7 +77,7 @@ for i in range(4,9):
     sum = pow((fourhaoxian_x[i+1] - fourhaoxian_x[i]), 2) + pow((fourhaoxian_y[i+1] - fourhaoxian_y[i]), 2)
     sum = pow(sum, 0.5)
     kecun += sum
-print(kecun)
+
 
 #广州火车站到珠江新城距离
 huochezhanjuli = 0
@@ -89,7 +89,7 @@ for i in range(0,8):
     sum = pow((threehaoxian_x[i+1] - threehaoxian_x[i]), 2) + pow((threehaoxian_y[i+1] - threehaoxian_y[i]), 2)
     sum = pow(sum, 0.5)
     huochezhanjuli += round(sum,2)
-print(huochezhanjuli)
+
 
 
 #嘉禾望岗到珠江新城距离
@@ -98,7 +98,7 @@ for i in range(0,13):
     sum = pow((distance_x[i+1] - distance_x[i]), 2) + pow((distance_y[i+1] - distance_y[i]), 2)
     sum = pow(sum, 0.5)
     jiahewanggang += round(sum,2)
-print(jiahewanggang)
+
 #珠江新城信息素
 pheromone_zhujiang = 1.0
 #客村信息素
@@ -270,44 +270,7 @@ class Ant(object):
             self.total_distance = self.total_distance + 10
             self.chepeinan = True
             result = (396,430)
-        # 获取去下一个城市的概率
-        # for i in range(15):
-        #     if self.open_table_city[i]:
-        #         try:
-        #             # 计算概率：与信息素浓度成正比，与距离成反比
-        #             select_citys_prob[i] = pow(pheromone_graph[self.current_city][i], ALPHA) * pow((1.0 / distance_graph[self.current_city][i]), BETA)
-        #             total_prob += select_citys_prob[i]
-        #         except ZeroDivisionError as e:
-        #             print('Ant ID: {ID}, current city: {current}, target city: {target}'.format(ID=self.ID,
-        #                                                                                         current=self.current_city,
-        #                                                                                         target=i))
-        #             sys.exit(1)
 
-        # # 轮盘选择城市
-        # if total_prob > 0.0:
-        #     # 产生一个随机概率,0.0-total_prob
-        #     temp_prob = random.uniform(0.0, total_prob)
-        #     for i in range(city_num):
-        #         if self.open_table_city[i]:
-        #             # 轮次相减
-        #             temp_prob -= select_citys_prob[i]
-        #             if temp_prob < 0.0:
-        #                 next_city = i
-        #                 break
-
-        # 未从概率产生，顺序选择一个未访问城市
-
-
-        # if next_city >= 14:
-        #     for i in range(4,10):
-        #         if self.open_table_city[14+i]:
-        #             result = (fourhaoxian_x[i],fourhaoxian_y[i])
-        #             break
-
-            # next_city = random.randint(0, city_num - 1)
-            # while ((self.open_table_city[next_city]) == False):  # if==False,说明已经遍历过了
-            #     next_city = random.randint(0, city_num - 1)
-        # 返回下一个城市序号
 
         return result
 
@@ -707,7 +670,7 @@ class TSP(object):
                     self.best_ant = copy.deepcopy(ant)
             # 更新信息素
             self.__update_pheromone_gragh(self.best_ant.path)
-            print(self.best_ant.path)
+
             print(u"迭代次数：", self.iter, u"最佳路径总距离：", int(self.best_ant.total_distance),"站数",self.best_ant.move_count-1)
             # 连线
             self.display(self.best_ant.path)
