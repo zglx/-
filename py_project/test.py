@@ -60,7 +60,7 @@ fivehaoxian_y = [
 
 #珠江新城选择的两条路径距离
 #换乘两个站点
-zhujiang = 200
+zhujiang = 0
 for i in range(7,12):
     sum = pow((threehaoxian_x[i+1] - threehaoxian_x[i]), 2) + pow((threehaoxian_y[i+1] - threehaoxian_y[i]), 2)
     sum = pow(sum, 0.5)
@@ -68,7 +68,7 @@ for i in range(7,12):
 zhujiang = zhujiang +  pow(pow(396 - 396, 2) + pow(352 - 430, 2),0.5)
 print(zhujiang)
 #换乘一个站点
-kecun = 100
+kecun = 0
 for i in range(12,14):
     sum = pow((distance_x[i+1] - distance_x[i]), 2) + pow((distance_y[i+1] - distance_y[i]), 2)
     sum = pow(sum, 0.5)
@@ -79,15 +79,39 @@ for i in range(4,9):
     kecun += sum
 print(kecun)
 
+#广州火车站到珠江新城距离
+huochezhanjuli = 0
+for i in range(0,9):
+    sum = pow((erhaoxian_x[i+1] - erhaoxian_x[i]), 2) + pow((erhaoxian_y[i+1] - erhaoxian_y[i]), 2)
+    sum = pow(sum, 0.5)
+    huochezhanjuli += round(sum,2)
+for i in range(0,8):
+    sum = pow((threehaoxian_x[i+1] - threehaoxian_x[i]), 2) + pow((threehaoxian_y[i+1] - threehaoxian_y[i]), 2)
+    sum = pow(sum, 0.5)
+    huochezhanjuli += round(sum,2)
+print(huochezhanjuli)
 
-# 城市距离和信息素
-distance_graph = [[0.0 for col in range(city_num)] for raw in range(city_num)]
-pheromone_graph = [[1.0 for col in range(city_num)] for raw in range(city_num)]
 
-#信息素珠江新城
+#嘉禾望岗到珠江新城距离
+jiahewanggang = 0
+for i in range(0,13):
+    sum = pow((distance_x[i+1] - distance_x[i]), 2) + pow((distance_y[i+1] - distance_y[i]), 2)
+    sum = pow(sum, 0.5)
+    jiahewanggang += round(sum,2)
+print(jiahewanggang)
+#珠江新城信息素
 pheromone_zhujiang = 1.0
-#信息素客村
+#客村信息素
 pheromone_kecun = 1.0
+
+
+#广州火车站-珠江新城信息素
+pheromone_huochezhan = 1.0
+#广州火车站-万胜围信息素
+pheromone_changgang = 1.0
+
+#嘉禾-珠江信息素
+jiahezhujiang = 1.0
 # ----------- 蚂蚁 -----------
 class Ant(object):
 
@@ -115,6 +139,7 @@ class Ant(object):
         self.kecun = False
         self.zhujiang = False
         self.chepeinan = False
+        self.huochezhan = False
     # 选择下一个城市
     def __choice_next_city(self,path):
 
@@ -123,6 +148,37 @@ class Ant(object):
         total = 0.0
         result = ()
         for i in range(15):
+            if (i == 2 and path == (185, 100)):
+
+                zhujiangxinchenggailv = pow(jiahezhujiang, ALPHA) * pow(1.0 /jiahewanggang , BETA)
+                guangzhouhuochezhangailv = pow(pheromone_huochezhan, ALPHA) * pow(1.0 /huochezhanjuli, BETA)
+
+                total = zhujiangxinchenggailv + guangzhouhuochezhangailv
+                if total > 0.0:
+                    # 产生一个随机概率,0.0-total_prob
+                    temp_prob = random.uniform(0.0, total)
+
+                    for i in range(2):
+                        # 轮次相减
+                        if i == 0:
+                            temp_prob -= zhujiangxinchenggailv
+                        elif i == 1:
+                            temp_prob -= guangzhouhuochezhangailv
+                        if temp_prob < 0.0:
+                            if (i == 0):
+                                result = (196, 125)
+                                self.open_table_city[3] = False
+
+                                return result
+                            elif i == 1:
+                                result = (165, 120)
+                                self.open_table_city[25] = False
+                                self.huochezhan = True
+                                return result
+
+
+                    break
+
             if( i==13 and path == (238,352) ):
                 #轮盘赌算法开始
                 #1、计算概率
@@ -135,7 +191,7 @@ class Ant(object):
                 if total > 0.0:
                     # 产生一个随机概率,0.0-total_prob
                     temp_prob = random.uniform(0.0, total)
-                    print(temp_prob)
+
                     for i in range(2):
                         # 轮次相减
                         if i== 0:
@@ -147,19 +203,47 @@ class Ant(object):
                                 result = (302,352)
                                 self.open_table_city[20] = False
 
-                                break
+                                return result
                             elif i == 1:
                                 result = (238,395)
                                 self.open_table_city[13] = False
-                                break
-                            print(result)
+
+                                return result
+
 
                     break
+            if self.huochezhan:
+                break
             if self.open_table_city[i]:
                 next_city = i
                 result = (distance_x[i], distance_y[i])
                 self.open_table_city[i]=False
                 break
+        #嘉禾望岗换乘点选择
+        if( path == (165,120) or self.huochezhan == True):
+            self.huochezhan = True
+            if path == (165,120):
+                self.total_distance = self.total_distance + 10
+            for i in range(2,9):
+                if self.open_table_city[ 24+i]:
+                    result = (erhaoxian_x[i],erhaoxian_y[i])
+                    self.open_table_city[ 24 + i] = False
+                    return result
+            self.total_distance = self.total_distance + 10
+            for i in range(1,8):
+                if self.open_table_city[ 32+i]:
+                    result = (threehaoxian_x[i],threehaoxian_y[i])
+                    self.open_table_city[ 32 + i] = False
+                    return result
+                if(i==7):
+                    result = (238, 352)
+                    for i in range(3, 14):
+                        self.open_table_city[i] = False
+                    self.huochezhan = False
+                    return result
+
+
+
         #客村新城换乘点选择
         if( path == (238,430) or self.kecun == True):
             self.kecun = True
@@ -310,11 +394,11 @@ class TSP(object):
         self.new()
 
         # 计算城市之间的距离
-        for i in range(15):
-            for j in range(15):
-                temp_distance = pow((distance_x[i] - distance_x[j]), 2) + pow((distance_y[i] - distance_y[j]), 2)
-                temp_distance = pow(temp_distance, 0.5)
-                distance_graph[i][j] = temp_distance
+        # for i in range(15):
+        #     for j in range(15):
+        #         temp_distance = pow((distance_x[i] - distance_x[j]), 2) + pow((distance_y[i] - distance_y[j]), 2)
+        #         temp_distance = pow(temp_distance, 0.5)
+        #         distance_graph[i][j] = temp_distance
 
 
     # 按键响应程序
@@ -506,9 +590,9 @@ class TSP(object):
         self.line_five(range(len(fivehaoxian_x)))
 
         # 初始城市之间的距离和信息素
-        for i in range(city_num):
-            for j in range(city_num):
-                pheromone_graph[i][j] = 1.0
+        # for i in range(city_num):
+        #     for j in range(city_num):
+        #         pheromone_graph[i][j] = 1.0
 
         self.ants = [Ant(ID) for ID in range(30)]  # 初始蚁群
         self.best_ant = Ant(-1)  # 初始最优解
@@ -670,5 +754,5 @@ if __name__ == '__main__':
 
 -------------------------------------------------------- 
     """)
-    print(pheromone_graph)
+    # print(pheromone_graph)
     TSP(tkinter.Tk()).mainloop()
