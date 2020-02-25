@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="854b3f66-965e-407f-bd51-071f00a0cdec" name="Default Changelist" comment="最新">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="207" column="50" selection-start-line="207" selection-start-column="41" selection-end-line="207" selection-end-column="50" />
+            <state relative-caret-position="168">
+              <caret line="644" column="13" selection-start-line="644" selection-start-column="8" selection-end-line="644" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -36,7 +35,7 @@
       <file leaf-file-name="pydevd_vars.py" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydevd_bundle/pydevd_vars.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
+            <state relative-caret-position="8556">
               <caret line="377" selection-start-line="377" selection-end-line="377" />
             </state>
           </provider>
@@ -102,7 +101,7 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://E:/Python/Lib/tkinter/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
+            <state relative-caret-position="39123">
               <caret line="1704" selection-start-line="1704" selection-end-line="1704" />
             </state>
           </provider>
@@ -137,7 +136,7 @@
       <find>302</find>
       <find>(165,120)</find>
       <find>238</find>
-      <find>(238, 352)</find>
+      <find />
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -389,7 +388,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581853238445</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="最新">
+      <created>1582606940646</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1582606940646</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -416,22 +422,22 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3282313" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.24925596" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32993197" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3282313" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49925596" visible="true" weight="0.40986395" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50074404" side_tool="true" weight="0.50340134" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32993197" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -561,7 +567,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test.py</url>
-          <line>704</line>
+          <line>667</line>
           <option name="timeStamp" value="131" />
         </line-breakpoint>
       </breakpoints>
@@ -979,14 +985,14 @@
     </entry>
     <entry file="file://E:/Python/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
+        <state relative-caret-position="39123">
           <caret line="1704" selection-start-line="1704" selection-end-line="1704" />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydevd_bundle/pydevd_vars.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
+        <state relative-caret-position="8556">
           <caret line="377" selection-start-line="377" selection-end-line="377" />
         </state>
       </provider>
@@ -1000,8 +1006,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="207" column="50" selection-start-line="207" selection-start-column="41" selection-end-line="207" selection-end-column="50" />
+        <state relative-caret-position="168">
+          <caret line="644" column="13" selection-start-line="644" selection-start-column="8" selection-end-line="644" selection-end-column="13" />
         </state>
       </provider>
     </entry>

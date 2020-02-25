@@ -281,13 +281,6 @@ class Ant(object):
 
         temp_distance = 0.0
 
-        # for i in range(1, city_num):
-        #     start, end = self.path[i], self.path[i - 1]
-        #     temp_distance += distance_graph[start][end]
-
-        # # 回路
-        # end = self.path[0]
-        # temp_distance += distance_graph[start][end]
         for i in range(len(self.path)-1):
             sum  = 0
             sum = pow((self.path[i][0] - self.path[i+1][0]), 2) + pow((self.path[i][1] - self.path[i+1][1]), 2)
@@ -356,12 +349,7 @@ class TSP(object):
         self.__bindEvents()
         self.new()
 
-        # 计算城市之间的距离
-        # for i in range(15):
-        #     for j in range(15):
-        #         temp_distance = pow((distance_x[i] - distance_x[j]), 2) + pow((distance_y[i] - distance_y[j]), 2)
-        #         temp_distance = pow(temp_distance, 0.5)
-        #         distance_graph[i][j] = temp_distance
+
 
 
     # 按键响应程序
@@ -690,19 +678,7 @@ class TSP(object):
             global pheromone_kecun
             for ant in self.ants:
                 pheromone_kecun =  (pheromone_kecun)  * 0.5 + Q / ant.total_distance
-        # # 获取每只蚂蚁在其路径上留下的信息素
-        # temp_pheromone = [[0.0 for col in range(6)] for raw in range(city_num)]
-        # for ant in self.ants:
-        #     for i in range(1, city_num):
-        #         start, end = ant.path[i - 1], ant.path[i]
-        #         # 在路径上的每两个相邻城市间留下信息素，与路径总距离反比
-        #         temp_pheromone[start][end] += Q / ant.total_distance
-        #         temp_pheromone[end][start] = temp_pheromone[start][end]
 
-        # # 更新所有城市之间的信息素，旧信息素衰减加上新迭代信息素
-        # for i in range(city_num):
-        #     for j in range(city_num):
-        #         pheromone_graph[i][j] = pheromone_graph[i][j] * RHO + temp_pheromone[i][j]
 
     # 主循环
     def mainloop(self):
